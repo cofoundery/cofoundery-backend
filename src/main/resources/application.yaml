@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: cofoundery-backend
+kakao:
+  client:
+    id: FIXME
+    secret: FIXME
