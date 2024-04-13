@@ -1,4 +1,4 @@
-package team.cofoundery.backend.domain.user.controller
+package team.cofoundery.backend.dto
 
 data class KakaoPublicJwk(
     val keyType: String,
