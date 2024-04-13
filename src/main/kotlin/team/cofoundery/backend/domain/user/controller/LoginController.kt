@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import team.cofoundery.backend.domain.user.controller.request.LoginRequest
+import team.cofoundery.backend.domain.user.controller.response.UserResponse
+import team.cofoundery.backend.domain.user.entity.User
+import team.cofoundery.backend.domain.user.repository.UserRepository
 import team.cofoundery.backend.infra.client.kakao.KakaoAuthClient
-import team.cofoundery.backend.infra.client.kakao.KakaoAuthLoginResponse
 import java.math.BigInteger
 import java.security.KeyFactory
 import java.security.spec.RSAPublicKeySpec
@@ -24,9 +26,10 @@ class LoginController(
     @Value("\${kakao.client.secret}")
     private val kakaoClientSecret: String,
     private val kakaoAuthClient: KakaoAuthClient,
+    private val userRepository: UserRepository,
 ) {
     @PostMapping("/login")
-    fun login(@RequestBody loginRequest: LoginRequest): KakaoAuthLoginResponse {
+    fun login(@RequestBody loginRequest: LoginRequest): UserResponse {
         val kakaoAuthLoginRequest = mapOf(
             "grant_type" to "authorization_code",
             "client_id" to kakaoClientId,
@@ -41,7 +44,28 @@ class LoginController(
         val kakaoUserId = claims["sub"] as String
         val nickname = claims["nickname"] as String?
 
-        return kakaoAuthLoginResponse
+        val userOrNull = userRepository.findByKakaoUserId(kakaoUserId)
+
+        if (userOrNull != null) {
+            val id = userOrNull.id!!
+            return UserResponse(
+                id = id,
+                kakaoUserId = kakaoUserId,
+                nickname = nickname,
+            )
+        }
+
+        val user = User(
+            kakaoUserId = kakaoUserId,
+            nickname = nickname,
+        )
+        userRepository.save(user)
+
+        return UserResponse(
+            id = user.id!!,
+            kakaoUserId = kakaoUserId,
+            nickname = nickname,
+        )
     }
 
     fun decodeClaims(idToken: String): Claims {
