@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0002
+      author: hajin-kim
+      changes:
+        - modifyDataType:
+            columnName: id
+            newDataType: bigint
+            tableName: user

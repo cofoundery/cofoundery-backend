@@ -31,7 +31,7 @@ class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    var id: Int? = null
+    var id: Long? = null
 
     @NotNull
     @CreatedDate
