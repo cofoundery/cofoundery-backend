@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0001
+      author: hajin-kim
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: kakao_user_id
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: nickname
+                  type: varchar(255)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_by
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_by
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
