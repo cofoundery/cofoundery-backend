@@ -1,4 +1,4 @@
-package team.cofoundery.backend
+package team.cofoundery.backend.infra.client.kakao
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies
 import com.fasterxml.jackson.databind.annotation.JsonNaming

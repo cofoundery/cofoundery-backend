@@ -1,4 +1,4 @@
-package team.cofoundery.backend
+package team.cofoundery.backend.infra.client.kakao
 
 data class KakaoAuthLoginResponse(
     val token_type: String,
@@ -6,5 +6,4 @@ data class KakaoAuthLoginResponse(
     val expires_in: Int,
     val refresh_token: String,
     val refresh_token_expires_in: Int,
-//    val scope: String,
 )

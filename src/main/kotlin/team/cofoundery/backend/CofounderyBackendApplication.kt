@@ -9,3 +9,5 @@ class CofounderyBackendApplication
 fun main(args: Array<String>) {
     runApplication<CofounderyBackendApplication>(*args)
 }
+
+const val BASE_PACKAGE = "team.cofoundery.backend"

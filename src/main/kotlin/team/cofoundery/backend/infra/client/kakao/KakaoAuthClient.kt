@@ -1,4 +1,4 @@
-package team.cofoundery.backend
+package team.cofoundery.backend.infra.client.kakao
 
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.http.MediaType

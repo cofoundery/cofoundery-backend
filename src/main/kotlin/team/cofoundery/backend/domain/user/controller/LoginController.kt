@@ -1,10 +1,13 @@
-package team.cofoundery.backend
+package team.cofoundery.backend.domain.user.controller
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import team.cofoundery.backend.domain.user.controller.request.LoginRequest
+import team.cofoundery.backend.infra.client.kakao.KakaoAuthClient
+import team.cofoundery.backend.infra.client.kakao.KakaoAuthLoginResponse
 
 @RestController
 @RequestMapping("/auth")
