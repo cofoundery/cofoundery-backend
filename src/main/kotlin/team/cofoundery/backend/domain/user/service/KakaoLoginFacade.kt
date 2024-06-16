@@ -2,7 +2,7 @@ package team.cofoundery.backend.domain.user.service
 
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import team.cofoundery.backend.dto.UserDto
+import team.cofoundery.backend.common.dto.UserDto
 
 @Service
 class KakaoLoginFacade(

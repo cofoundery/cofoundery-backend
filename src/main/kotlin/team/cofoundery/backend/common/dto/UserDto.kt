@@ -1,4 +1,4 @@
-package team.cofoundery.backend.dto
+package team.cofoundery.backend.common.dto
 
 import team.cofoundery.backend.domain.user.entity.User
 

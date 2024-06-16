@@ -5,8 +5,8 @@ import jakarta.annotation.PostConstruct
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
-import team.cofoundery.backend.dto.KakaoOpenIdPayload
-import team.cofoundery.backend.dto.KakaoPublicJwk
+import team.cofoundery.backend.common.dto.KakaoOpenIdPayload
+import team.cofoundery.backend.common.dto.KakaoPublicJwk
 import team.cofoundery.backend.infra.client.kakao.KakaoAuthClient
 import java.math.BigInteger
 import java.security.KeyFactory

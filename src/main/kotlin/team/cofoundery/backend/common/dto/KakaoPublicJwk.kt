@@ -1,4 +1,4 @@
-package team.cofoundery.backend.dto
+package team.cofoundery.backend.common.dto
 
 data class KakaoPublicJwk(
     val keyType: String,
